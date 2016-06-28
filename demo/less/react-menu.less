@@ -1,0 +1,59 @@
+@import "lib/util";
+
+.demo-box{
+  font-family: "Microsoft YaHei";
+  font-size:20px;
+  .demo-welcome{
+    font-size:40px;
+    padding:20px;
+    color: @menu-bg;
+  }
+  .demo-menu-box{
+    position:relative;
+    width:200px;
+    height:auto;
+    float:left;
+    .demo-ul{
+      list-style: none;
+      height:400px;
+      background:@menu-bg;
+      .demo-li{
+        padding:10px;
+        text-align:center;
+        color: @menu-color;
+        cursor: pointer;
+        .demo-name{
+          padding:10px;
+        }
+        a{
+          color:@menu-color;
+        }
+        .demo-ul-show{
+          display: none;
+          background: @qian-lans;
+          color:@btn-color;
+          .demo-content-ms{
+            padding: 10px;
+            text-align: right;
+          }
+        }
+
+      }
+      .demo-li.active{
+        .demo-ul-show{
+          display: block;
+        }
+      }
+      .demo-name:hover{
+        background: @menu-hover;
+      }
+      .demo-active{
+
+      }
+    }
+  }
+  .demo-menu-content{
+    padding:20px;
+    float:left;
+  }
+}
