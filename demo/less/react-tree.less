@@ -1,0 +1,25 @@
+@import 'lib/util.less';
+.demo-tree-box {
+    margin-top:20px;
+    .tree-menu {
+        background: @menu-bg;
+        color: @menu-color;
+        .tree-li {
+            cursor: pointer;
+            .title {
+                height: 30px;
+                line-height: 30px;
+                font-size: 16px;
+                padding-left: 10px;
+            }
+            .tree-menu {
+                display: none;
+            }
+        }
+        .active {
+            .tree-menu {
+                display: block;
+            }
+        }
+    }
+}
