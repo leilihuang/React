@@ -5,7 +5,8 @@
   "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "wepack",
+    "dll":"webpack --config ddl.config.js",
+    "build": "wepack --devtool eval --progress --colors",
     "dev": "webpack-dev-server --devtool eval --progress --colors --hot --content-base build",
     "kaifa": "webpack-dev-server --devtool cheap-module-eval-source-map --progress --colors --hot --content-base build"
   },
@@ -14,21 +15,27 @@
   "devDependencies": {
     "babel-core": "^6.9.1",
     "babel-loader": "^6.2.4",
+    "babel-plugin-antd": "^0.4.0",
     "babel-plugin-transform-class-properties": "^6.9.1",
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-react": "^6.5.0",
     "file-loader": "^0.8.5",
+    "mockjs": "^1.0.1-beta2",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
+    "react-redux": "^4.4.5",
     "react-router": "^2.4.1",
+    "redux-devtools": "^3.3.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.1"
   },
   "dependencies": {
+    "antd": "^1.0.0-beta.10",
     "css-loader": "^0.23.1",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
     "npm": "^3.9.5",
+    "redux": "^3.5.2",
     "style-loader": "^0.13.1",
     "webpack-dev-server": "^1.14.1"
   }

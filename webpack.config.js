@@ -1,34 +1,50 @@
 var path = require('path'),
-    node_modules=path.resolve(__dirname,'node_modules'),
-    pathReact=path.resolve(node_modules,'react/dist/react.min.js'),
-    pathReactDom=path.resolve(node_modules,'react-dom/dist/react-dom.min.js');
-
+    webpack = require('webpack');
 
 
 var config = {
-    debug:true,
-    devtool:'inline-source-map',
-    entry: ['webpack/hot/dev-server',path.resolve(__dirname,'demo/menu-route.jsx')],
+    cache:true,
+    devtool: 'eval',  //or cheap-module-eval-source-map
+    entry: {
+        index:['webpack/hot/dev-server', path.resolve(__dirname, 'Learn/examples/main.jsx')]
+    },
+    // entry: ['webpack/hot/dev-server', path.resolve(__dirname, 'Learn/examples/main.jsx')],
     output: {
         path: path.resolve(__dirname, 'build'),
-        filename: 'bundle.js'
+        filename: '[name].js'
     },
+    resolve:{
+        extensions:['','.js','.jsx']
+    },
+    plugins:[
+        new webpack.optimize.OccurrenceOrderPlugin(),
+        new webpack.optimize.UglifyJsPlugin({
+            compress:{
+                warnings : false
+            }
+        }),
+        new webpack.DllReferencePlugin({
+            context:__dirname,
+            manifest:require('./build/manifest.json')
+        })
+    ],
     module: {
         loaders: [{
             test: /\.jsx?$/, // 用正则来匹配文件路径，这段意思是匹配 js 或者 jsx
             loader: 'babel',
+            exclude:/node_modules/,
             query: {
                 presets: ['react', 'es2015'],
-                plugins: ["transform-class-properties"]
+                plugins: ["transform-class-properties"],
+                cacheDirectory: true
             }
-        },{
-            test:/\.less$/,
-            loader:'style!css!less'
-        },{
-            test:/\.(jpg|png)$/,
-            loader:'url?limit=25000'
-        }],
-        noParse:[pathReact,pathReactDom]
+        }, {
+            test: /\.less$/,
+            loader: 'style!css!less'
+        }, {
+            test: /\.(jpg|png)$/,
+            loader: 'url?limit=25000'
+        }]
     }
 };
 
