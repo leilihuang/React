@@ -1,14 +1,19 @@
 # React
-写写React组件
+# 目录介绍
+* demo文件夹下面是自己学习React写的一些简单组件
+* Learn文件夹下面是这段时间学习React的知识的相关综合Demo
 
+#使用技术
+* React
+* React-redux
+* React-router
+* Redux
+* Antd
 
-# webpack配置文件描述
-* webpack.config.js 是使用Ant框架
-* webpack.config.test.js 是自己学习react.js写的组件
+#安装使用
+* npm install 下载相关插件
+* 执行npm run dll 完成后执行 npm run dev就可以看到Demo实例了
 
-# 使用Redux进行异步加载的必要插件
-* redux-thunks 和 redux-promise 分别是使用异步回调和 Promise 来解决异步 action 问题的。
+#如果对你有所帮助，欢迎点赞
 
-# 介绍Rudex里面 action.js  reducer.js  store.js是做什么的
-* action 只是描述了有事情发生了这一事实，并没有指明应用如何更新state。而这正是reducer要做的事情
 
