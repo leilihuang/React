@@ -1,5 +1,5 @@
 {
-  "name": "lib",
+  "name": "vendor_library",
   "content": {
     "./node_modules/.npminstall/react/15.1.0/react/react.js": 1,
     "./node_modules/.npminstall/react/15.1.0/react/lib/React.js": 2,

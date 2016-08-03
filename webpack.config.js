@@ -10,8 +10,8 @@ var config = {
     },
     // entry: ['webpack/hot/dev-server', path.resolve(__dirname, 'Learn/examples/main.jsx')],
     output: {
-        path: path.resolve(__dirname, 'build'),
-        filename: '[name].js'
+        path: path.resolve(__dirname, 'dist'),
+        filename: '[name].bundle.js'
     },
     resolve:{
         extensions:['','.js','.jsx']
@@ -25,7 +25,7 @@ var config = {
         }),
         new webpack.DllReferencePlugin({
             context:__dirname,
-            manifest:require('./build/manifest.json')
+            manifest:require('./dist/vendor-manifest.json')
         })
     ],
     module: {

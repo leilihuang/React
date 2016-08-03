@@ -10,7 +10,7 @@ export default class MenuDemo extends Component{
   constructor(props) {
     super(props);
     this.state={
-      current: '1'
+      current: '0'
     };
   }
   handleClick(e) {

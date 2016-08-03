@@ -1,4 +1,5 @@
-import 'antd/dist/antd.less';  // or 'antd/dist/antd.less'
+import 'antd/dist/antd.less'  // or 'antd/dist/antd.less'
+import '../less/home.less'
 import React , {Component} from 'react'
 import {Router , Route , IndexRoute , browserHistory} from 'react-router'
 import {render} from 'react-dom'
@@ -22,7 +23,7 @@ render(
    <Provider store={store}>
       <Router history={browserHistory}>
         <Route path='/' component={MenuDemo}>
-         <IndexRoute component={Add}  />
+         <IndexRoute component={Home}  />
           <Route path='/home' component={Home}></Route>
           <Route path='/edit' component={Edit}></Route>
           <Route path='/add' component={Add}></Route>

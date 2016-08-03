@@ -63,7 +63,6 @@ export default class List  extends Component{
 
 		return (
 			<div className="list-box">
-				<h1>列表页</h1>
 				<Table columns={columns} dataSource={this.props.todos} />
 			</div>
 		)
