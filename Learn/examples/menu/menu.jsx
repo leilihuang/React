@@ -23,7 +23,7 @@ export default class MenuDemo extends Component{
     let data=[
       {path:'/home',title:'首页',icon:'home'},
       {path:'/add',title:'新增',icon:'plus-circle-o'},
-      {path:'/list',title:'列表',icon:'bar'}
+      {path:'/list',title:'列表',icon:'bars'}
     ];  
     return (
       <div className="menu-box">

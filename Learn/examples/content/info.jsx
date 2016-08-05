@@ -31,7 +31,7 @@ class Info extends Component{
 					<p className="ant-form-text">{data.pass}</p>
 				</FormItem>
 				<FormItem {...formItemLayout} label='性别'>
-					<p className="ant-form-text">{data.male === 'male' ? '男' : '女'}</p>
+					<p className="ant-form-text">{data.gender == 'male' ? '男' : '女'}</p>
 				</FormItem>
 				<FormItem {...formItemLayout} label='备注'>
 					<p className="ant-form-text">{data.ramrk}</p>
