@@ -5,9 +5,10 @@
   "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dll":"webpack --config webpack.dll.config.js",
+    "dll": "webpack --config webpack.dll.config.js",
     "build": "wepack --devtool eval --progress --colors",
-    "dev": "webpack-dev-server --devtool eval --progress --colors --hot --content-base dist",
+    "dev": "webpack-dev-server  --devtool eval --progress --colors --hot --content-base  dist",
+    "poss": "webpack-dev-server  --config webpack.poss.config.js --devtool eval --progress --colors --hot --content-base dist",
     "kaifa": "webpack-dev-server --devtool cheap-module-eval-source-map --progress --colors --hot --content-base dist"
   },
   "author": "leilihuang",
@@ -26,15 +27,20 @@
     "react-redux": "^4.4.5",
     "react-router": "^2.4.1",
     "redux-devtools": "^3.3.1",
+    "redux-devtools-dock-monitor": "^1.1.1",
+    "redux-devtools-log-monitor": "^1.0.11",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.1"
   },
   "dependencies": {
     "antd": "^1.0.0-beta.10",
+    "babel-polyfill": "^6.13.0",
     "css-loader": "^0.23.1",
+    "isomorphic-fetch": "^2.2.1",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
     "npm": "^3.9.5",
+    "react-router-redux": "^4.0.5",
     "redux": "^3.5.2",
     "style-loader": "^0.13.1",
     "webpack-dev-server": "^1.14.1"
