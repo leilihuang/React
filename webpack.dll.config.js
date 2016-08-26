@@ -7,10 +7,7 @@ const vendors = [
     'react-router',
     'react-redux',
     'redux',
-    'antd',
-    'babel-polyfill',
-    'mockjs',
-    'isomorphic-fetch'
+    'antd'
 ];
 
 module.exports = {

@@ -35,11 +35,10 @@ export default class Module extends Component{
 					{this.props.modules.map(
 						(module,i) =>
 						<Col key={i} className="gutter-row" span={6}>
-							<Link to={module.path}><div className="gutter-box">{module.title}</div></Link>
+							<Link to={module.path}></Link><div className="gutter-box">{module.title}</div>
 						</Col>
 					)}
 				</Row>
-				<div className="menu-box">{this.props.children}</div>
 			</div>
 		)
 	}
