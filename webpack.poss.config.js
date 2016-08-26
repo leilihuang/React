@@ -6,8 +6,8 @@ var config = {
     cache:true,
     devtool: 'eval',  //or cheap-module-eval-source-map
     entry: {
-        index:['webpack/hot/dev-server', path.resolve(__dirname, 'Learn/examples/main.jsx')]   //增删改查DEMO
-        // index:['webpack/hot/dev-server', path.resolve(__dirname, 'Poss/main')]
+        // index:['webpack/hot/dev-server', path.resolve(__dirname, 'Learn/examples/main.jsx')]  增删改查DEMO
+        index:['webpack/hot/dev-server', path.resolve(__dirname, 'Poss/main')]
     },
     // entry: ['webpack/hot/dev-server', path.resolve(__dirname, 'Learn/examples/main.jsx')],
     output: {
@@ -36,7 +36,7 @@ var config = {
             exclude:/node_modules/,
             query: {
                 presets: ['react', 'es2015'],
-                plugins: ["transform-class-properties"]
+                plugins: ["transform-class-properties"],
                 cacheDirectory: true
             },
             include:__dirname
