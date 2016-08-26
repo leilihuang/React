@@ -23,17 +23,7 @@ class GameEdit extends Component{
         }
     }
     componentWillMount(){
-        const {gameMenu,gameMenuSub} = this.props;
-        if(gameMenuSub){
-            gameMenu.map((d,i)=>{
-                if(d.key == gameMenuSub.key){
-                    return Object.assign({},d,gameMenuSub);
-                }
-                return d;
-            });
-        }
-
-        console.log(gameMenu)
+        const {gameMenu} = this.props;
         // this.setState(gameMenu);  
         this.props.form.setFieldsValue(gameMenu);
     }

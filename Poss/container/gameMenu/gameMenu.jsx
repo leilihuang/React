@@ -28,7 +28,16 @@ class Menus extends Component{
         }
     }
     componentWillMount(){
-
+        const {gameMenuSub} = this.props;
+        if(gameMenuSub.key){
+            table.data = table.data.map((d,i)=>{
+                if(d.key == gameMenuSub.key){
+                    console.log(Object.assign({},table.data[i],gameMenuSub));
+                    return Object.assign({},table.data[i],gameMenuSub);
+                }
+                return d;
+            });
+        }
         this.setState({
             table : table.data
         });
@@ -44,7 +53,6 @@ class Menus extends Component{
 
     }
     render(){
-        console.log(this.props)
         const columns = [{
             title:"游戏ID",
             dataIndex: "id",
