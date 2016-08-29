@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Table , Icon} from 'antd'
+import { Table , Icon,Form,Select,Button,Input} from 'antd'
 import { browserHistory } from 'react-router'
 import {connect} from 'react-redux'
 import Mock from 'mockjs'
@@ -7,6 +7,8 @@ import reducers from '../../reducers/reducers'
 import {gameMenuEdit , gameMenuDel , gameMenuCheck} from '../../actions/action'
 
 const Random = Mock.Random;
+const FormItem = Form.Item;
+const Option = Select.Option;
 const table = Mock.mock({
     'data|10':[{
         'key|+1':1,
@@ -46,11 +48,13 @@ class Menus extends Component{
         this.props.dispatch(gameMenuEdit(record))
         browserHistory.push('/poss1/menuEdit')
     }
-    handleCheck(record){
-
-    }
     handleDelete(record){
-
+        var filter =this.state.table.filter((d)=>{
+            return d.id !== record.id
+        });
+        this.setState({
+            table:filter
+        });
     }
     render(){
         const columns = [{
@@ -116,14 +120,50 @@ class Menus extends Component{
                     <a href="#" onClick={this.handleEdit.bind(this,record)}>编辑</a>
                     <span className="ant-divider"></span>
                     <a href="#" onClick={this.handleDelete.bind(this,record)}>删除</a>
-                    <span className="ant-divider" ></span>
-                    <a href="#" onClick={this.handleCheck.bind(this.record)}>查看</a>
                 </span>
             )
         }];
         
         return (
             <div className="game-menu-box">
+                <Form inline>
+                    <FormItem label="游戏类型" style={{paddingBottom:20}}>
+                        <Select style={{width:200}} size="large" onChange = {(val)=>{
+                            let data = this.state.table.filter((d)=>{
+                                return d.gameType === val
+                            });
+                            if(val === ""){
+                                data = table.data;
+                            }                            
+                            this.setState({
+                                table:data
+                            });
+                        }} defaultValue ="">
+                            <Option value = "">全部</Option>
+                            <Option value = "1">RPG</Option>
+                            <Option value = "2">动作</Option>
+                            <Option value = "3">射击</Option>
+                        </Select>
+                    </FormItem>
+                    <FormItem label="支持平台">
+                        <Select style={{width:200}} size="large" onChange = {(val)=>{
+                            let data = this.state.table.filter((d)=>{
+                                return d.platform === val
+                            });
+                            if(val === ""){
+                                data = table.data;
+                            }                                
+                            this.setState({
+                                table:data
+                            });
+                        }} defaultValue = "">
+                            <Option value = "">全部</Option>
+                            <Option value = "1">PC</Option>
+                            <Option value = "2">安卓</Option>
+                            <Option value = "3">IOS</Option>
+                        </Select>
+                    </FormItem>
+                </Form>
                 <Table columns={columns} dataSource={this.state.table}></Table>
             </div>
         )

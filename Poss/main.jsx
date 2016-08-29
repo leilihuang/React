@@ -25,7 +25,8 @@ const store = createStore(reducers)
 render(
     <Provider store = {store}>
         <Router history = {browserHistory}>
-            <Route path='/' component={Module} />
+            <Route path='/' component={Poss1} />
+            {/*<Route path='/' component={Module} />*/}
             <Route path='/poss1' component={Poss1}>
                 <Route path='/poss1/games' component={Games} />
                 <Route path='/poss1/menu' component={Menus} /> 
