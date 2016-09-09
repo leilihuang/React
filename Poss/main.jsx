@@ -14,6 +14,9 @@ import Module from './menu/module.jsx'
 
 import Poss1 from './menu/poss1.jsx'
 import Games from './container/games/games.jsx'
+import GameAdd from './container/games/gameAdd.jsx'
+
+
 import Menus from './container/gameMenu/gameMenu.jsx'
 import GameEdit from './container/gameMenu/gameEdit.jsx'
 
@@ -27,12 +30,13 @@ render(
         <Router history = {browserHistory}>
             <Route path='/' component={Poss1} />
             {/*<Route path='/' component={Module} />*/}
-            <Route path='/poss1' component={Poss1}>
-                <Route path='/poss1/games' component={Games} />
-                <Route path='/poss1/menu' component={Menus} /> 
-                <Route path='/poss1/menuEdit' component={GameEdit} /> 
-                <Route path='/poss1/list' component={List} /> 
-                <Route path='/poss1/banner' component={Banner} /> 
+            <Route path='poss1' component={Poss1}>
+                <Route path='games' component={Games} />
+                <Route path='games/add' component={GameAdd} />
+                <Route path='menu' component={Menus} /> 
+                <Route path='menuEdit' component={GameEdit} /> 
+                <Route path='list' component={List} /> 
+                <Route path='banner' component={Banner} /> 
             </Route>
             <Route path='/poss2' />
         </Router>
