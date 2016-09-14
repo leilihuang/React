@@ -33,6 +33,7 @@ render(
             <Route path='poss1' component={Poss1}>
                 <Route path='games' component={Games} />
                 <Route path='games/add' component={GameAdd} />
+                
                 <Route path='menu' component={Menus} /> 
                 <Route path='menuEdit' component={GameEdit} /> 
                 <Route path='list' component={List} /> 

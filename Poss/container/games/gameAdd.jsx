@@ -1,5 +1,12 @@
 import React , {Component} from 'react';
+import {Link , browserHistory} from 'react-router';
+import {connect} from 'react-redux';
 import {Form , Select , Input , DatePicker , Button} from 'antd';
+import $ from 'jquery';
+
+import {gameAdd} from '../../actions/games';
+import games from '../../reducers/games'
+import Util from '../util';
 
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -8,12 +15,20 @@ class GameAdd extends Component{
     constructor(props){
         super(props);
         this.state = {
-
+            updateTime:'',
+            createTime:''
         };
     }
-    submitBind(){
+    componentWillMount(){
+    }
+    submitBind(e){
         e.preventDefault();
-        console.log(this.props.getFieldsValue());
+        let data = this.props.form.getFieldsValue();
+        let util =new Util();
+        data.createTime = util.timeOut(data.createTime);
+        data.updateTime = util.timeOut(data.updateTime);
+        this.props.dispatch(gameAdd(data));
+        browserHistory.push('/poss1/games');
     }
     render(){
         const layout = {
@@ -34,8 +49,6 @@ class GameAdd extends Component{
                             <Option value='2'>动作类</Option>
                             <Option value='3'>冒险类</Option>
                             <Option value='4'>卡牌</Option>
-                            <Option value='5'>休闲</Option>
-                            <Option value='6'>角色扮演</Option>
                         </Select>
                     </FormItem>
                     <FormItem label='支持平台'
@@ -48,11 +61,11 @@ class GameAdd extends Component{
                     </FormItem>
                     <FormItem label='创建时间'
                         {...layout}>
-                        <DatePicker style={{width:200}} {...getFieldProps('createTime',{initialValue:''})} />
+                        <DatePicker {...getFieldProps('createTime')}  style={{width:200}}  />
                     </FormItem>
                     <FormItem  label='更新时间'
                         {...layout}>
-                        <DatePicker style={{width:200}}  {...getFieldProps('updateTime',{initialValue:''})} />
+                        <DatePicker {...getFieldProps('updateTime')}   style={{width:200}} />
                     </FormItem>
                     <FormItem label='状态'
                         {...layout}>
@@ -61,8 +74,11 @@ class GameAdd extends Component{
                             <Option value='2'>下架</Option>
                         </Select>
                     </FormItem>
-                    <FormItem wrapperCol={{ span: 16, offset: 6 }} className='m-top2'>
-                        <Button htmlType='submit' type='primary'>确定</Button>
+                    <FormItem wrapperCol={{ span: 6, offset: 6 }} className='m-top2'>
+                        <Button size='large' htmlType='submit' type='primary'>确定</Button>
+                        <Link className='m-left2' to='/poss1/games'>
+                            <Button size='large' >取消</Button>
+                        </Link>
                     </FormItem>
                 </Form>
             </div>
@@ -72,5 +88,7 @@ class GameAdd extends Component{
 }
 
 GameAdd = Form.create()(GameAdd);
+
+GameAdd = connect(games)(GameAdd);
 
 export default GameAdd;

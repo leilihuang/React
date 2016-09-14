@@ -4,6 +4,7 @@ import {Link,browserHistory} from 'react-router'
 import { Form, Input, Select, Checkbox ,DatePicker ,Col ,Button} from 'antd'
 import reducers from '../../reducers/reducers'
 import {gameSubmit} from '../../actions/action'
+import Util from '../util';
 
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -24,12 +25,13 @@ class GameEdit extends Component{
     }
     componentWillMount(){
         const {gameMenu} = this.props;
-        // this.setState(gameMenu);  
         this.props.form.setFieldsValue(gameMenu);
     }
     handlerSubmit(e){
         e.preventDefault();
         let data = this.props.form.getFieldsValue();
+        let util =new Util();
+        data.updateTime = util.timeOut(data.updateTime);        
         this.props.dispatch(gameSubmit(data));
         browserHistory.push('/poss1/menu')
     }
@@ -87,9 +89,8 @@ class GameEdit extends Component{
                 </FormItem>
    
                 <FormItem wrapperCol={{span:12,offset:6}} style = {{marginTop:24}}>
-                    <Button type = 'primary' htmlType = 'submit'>提交</Button>
-                     &nbsp;&nbsp;&nbsp;
-                    <Link to='/poss1/menu'><Button type = 'ghost' htmlType = 'submit'>取消</Button></Link>
+                    <Button size='large' type = 'primary' htmlType = 'submit'>提交</Button>
+                    <Link to='/poss1/menu' className='m-left2'><Button size='large' type = 'ghost' >取消</Button></Link>
                 </FormItem>
             </Form>
         )

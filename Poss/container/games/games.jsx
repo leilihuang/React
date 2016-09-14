@@ -1,6 +1,11 @@
 import React , { Component } from 'react';
 import {Link} from 'react-router';
+import {connect} from 'react-redux';
 import {Table,Button,Form,Select,Input,Icon} from 'antd';
+import $ from 'jquery';
+
+import {gameAdd} from '../../actions/games';
+import games from '../../reducers/games'
 
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -12,11 +17,35 @@ const columns = [{
 },{
     title:'游戏类型',
     dataIndex:'gameType',
-    key:'gameType'
+    key:'gameType',
+    render:(text)=>{
+        if(text == '1'){
+            return <span>射击类</span>
+        }else if(text == '2'){
+            return <span>动作类</span>
+        }else if(text == '3'){
+            return <span>冒险类</span>
+        }else if(text == '4'){
+            return <span>卡牌</span>
+        }else{
+            return <span></span>
+        }
+    }
 },{
     title:'支持平台',
     dataIndex:'platform',
-    key:'platform'
+    key:'platform',
+    render:(text)=>{
+        if(text == '1'){
+            return <span>PC</span>
+        }else if(text == '2'){
+            return <span>安卓</span>
+        }else if(text == '3'){
+            return <span>IOS</span>
+        }else{
+            return <span></span>
+        }
+    }
 },{
     title:'创建时间',
     dataIndex:'createTime',
@@ -30,7 +59,13 @@ const columns = [{
     dataIndex:'gameState',
     key:'gameState',
     render:(text)=>{
-
+        if(text == '1'){
+            return <span>上架</span>
+        }else if(text == '2'){
+            return <span>下架</span>
+        }else{
+            return <span></span>
+        }
     }
 },{
     title:'操作',
@@ -38,7 +73,7 @@ const columns = [{
     render:(text,record)=>(
         <span>
             <Button type='primary' size='large'>编辑</Button>
-            <Button type='primary' size='large' className='g-btn-red'>删除</Button>            
+            <Button  size='large' className='g-btn-red'>删除</Button>            
         </span>
     )
 }];
@@ -52,14 +87,14 @@ class Games extends Component{
 
     }
     componentWillMount(){
-
+        console.log(this.props.games);
+        this.setState({
+            tableData:this.props.games
+        })
     }
     handleSub(e){
         e.preventDefault();
         console.log(this.props.form.getFieldsValue());
-    }
-    addBind(){
-        console.log('新增');
     }
     render(){
         return (
@@ -89,5 +124,7 @@ class Games extends Component{
 }
 
 Games = Form.create()(Games);
+
+Games = connect(games)(Games);
 
 export default Games;
