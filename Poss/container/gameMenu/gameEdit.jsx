@@ -28,7 +28,7 @@ class GameEdit extends Component{
         this.props.form.setFieldsValue(gameMenu);
     }
     handlerSubmit(e){
-        e.preventDefault();
+        e.preventDefault(); 
         let data = this.props.form.getFieldsValue();
         let util =new Util();
         data.updateTime = util.timeOut(data.updateTime);        

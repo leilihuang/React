@@ -12,8 +12,8 @@ const Option = Select.Option;
 
 const columns = [{
     title:'游戏ID',
-    dataIndex:'gameName',
-    key:'gameName'
+    dataIndex:'gameId',
+    key:'gameId'
 },{
     title:'游戏类型',
     dataIndex:'gameType',

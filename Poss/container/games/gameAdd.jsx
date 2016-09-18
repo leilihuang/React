@@ -11,6 +11,8 @@ import Util from '../util';
 const FormItem = Form.Item;
 const Option = Select.Option;
 
+let key=0;
+
 class GameAdd extends Component{
     constructor(props){
         super(props);
@@ -37,6 +39,7 @@ class GameAdd extends Component{
         };
 
         const {getFieldProps} = this.props.form;
+        key++;
 
         return (
             <div>
