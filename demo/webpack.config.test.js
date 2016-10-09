@@ -6,7 +6,7 @@ var path = require('path'),
 
 
 var config = {
-    debug:true,1
+    debug:true,
     devtool:'inline-source-map',
     entry: ['webpack/hot/dev-server',path.resolve(__dirname,'demo/menu-route.jsx')],
     output: {
