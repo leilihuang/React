@@ -10,8 +10,7 @@ const vendors = [
     'antd',
     'babel-polyfill',
     'mockjs',
-    'isomorphic-fetch',
-    'jquery'
+    'isomorphic-fetch'
 ];
 
 module.exports = {
