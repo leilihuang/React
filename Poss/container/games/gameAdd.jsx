@@ -2,7 +2,6 @@ import React , {Component} from 'react';
 import {Link , browserHistory} from 'react-router';
 import {connect} from 'react-redux';
 import {Form , Select , Input , DatePicker , Button} from 'antd';
-import $ from 'jquery';
 
 import {gameAdd} from '../../actions/games';
 import games from '../../reducers/games'

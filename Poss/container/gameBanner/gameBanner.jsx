@@ -1,15 +1,27 @@
 import React , { Component } from 'react'
-
-export default class Banner extends Component{
+import Head from '../head'
+class Banner extends Component{
+    static defaultProps ={
+        title:'你好啊'
+    }
     constructor(props){
         super(props);
         this.state={
 
         }
     }
+    componentWillMount(){
+        
+    }
     render(){
         return (
-            <h1>游戏banner</h1>
+            <div>
+                <Head {...this.props} />
+                <h1>游戏banner</h1>
+            </div>
         )
     }
 }
+
+
+export default Banner;

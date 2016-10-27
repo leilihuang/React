@@ -2,7 +2,6 @@ import React , { Component } from 'react';
 import {Link} from 'react-router';
 import {connect} from 'react-redux';
 import {Table,Button,Form,Select,Input,Icon} from 'antd';
-import $ from 'jquery';
 
 import {gameAdd} from '../../actions/games';
 import games from '../../reducers/games'
@@ -87,7 +86,7 @@ class Games extends Component{
 
     }
     componentWillMount(){
-        console.log(this.props.games);
+        console.log(this.props);
         this.setState({
             tableData:this.props.games
         })

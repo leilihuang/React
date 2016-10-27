@@ -16,7 +16,6 @@ export default class Poss1 extends React.Component {
     }
   }
   handleClick(e){
-    console.log(e.key)
     this.setState({
         current : e.key,
         openKeys : e.keyPath.slice(1)
