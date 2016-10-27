@@ -3,7 +3,7 @@
 * demo文件夹下面是自己学习React写的一些简单组件
 * Learn文件夹下面是这段时间学习React的知识的相关综合Demo
 * Poss文件夹下面是开始改造大型后台系统代码
-* H5目录存放H5 DOME
+* 新增H5项目地址https://github.com/leilihuang/react-H5
 
 #使用技术
 * React
@@ -17,7 +17,7 @@
 * React-redux
 * React-router
 * Redux
-* less
+* sass
 * antd-mobile
 
 
