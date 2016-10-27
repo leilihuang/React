@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dll": "webpack --config webpack.dll.config.js",
-    "build": "wepack --devtool eval --progress --colors",
+    "build": "webpack --devtool eval --progress --colors",
     "dev": "webpack-dev-server  --devtool eval --progress --colors --hot --content-base  dist",
     "poss": "webpack-dev-server  --config webpack.poss.config.js  --devtool eval --progress --colors --hot --content-base  dist --history-api-fallback",
     "h5": "webpack-dev-server  --config webpack.h5.config.js  --devtool eval --progress --colors --hot --content-base  dist --history-api-fallback",
