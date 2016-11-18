@@ -4,6 +4,7 @@
 * Learn文件夹下面是这段时间学习React的知识的相关综合Demo
 * Poss文件夹下面是开始改造大型后台系统代码
 * 新增H5项目地址https://github.com/leilihuang/react-H5
+* 新增PC版商户入驻流程https://github.com/leilihuang/merchants-enroll
 
 #使用技术
 * React
