@@ -21,6 +21,11 @@
 * sass
 * antd-mobile
 
+#辅助开发插件
+* 参考（PC 配置https://github.com/leilihuang/merchants-enroll）
+* redux-thunk
+* redux-logger
+* redux-devtools(默认是关闭的注释掉了，如果要用请自行放开,一个是main.jsx，一个是config文件夹下面的store.dev.jsx)
 
 #安装使用
 * npm install 下载相关插件
